@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/MaestroLuu/Random-Thoughts#readme",
   "dependencies": {
+    "dayjs": "^1.10.7",
     "express": "^4.17.3",
     "mongoose": "^6.2.3"
   }
