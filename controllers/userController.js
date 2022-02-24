@@ -67,7 +67,6 @@ module.exports = {
       .catch((err) => res.status(500).json(err))
   },
   // DELETE to remove friend from list
-  // check code and modify
   removeFriend(req, res) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
