@@ -28,7 +28,7 @@ module.exports = {
         .then((user) => {
             return User.findOneAndUpdate(
                 {_id: req.body.userId},
-                {$addToSet: {thoughts: user._id}},
+                {$set: req.body},
                 {new: true}
             );
         })
@@ -48,5 +48,19 @@ module.exports = {
       )
       .then(() => res.json({ message: 'User and associated thoughts were deleted!' }))
       .catch((err) => res.status(500).json(err));
+  },
+//review what prompt is asking for in README
+ createFriend(req, res) {
+    User.findOne({ _id: req.params.userId })
+      .then((user) => {
+        !user
+        ? res.status(404).json({ message: 'No user with that ID' })
+        : res.json(user)
+          return User.findOneAndUpdate(
+              {_id: req.body.userId},
+              {$addToSet: {friends: user._id}},
+              {new: true}
+              );
+      })
   },
 };
