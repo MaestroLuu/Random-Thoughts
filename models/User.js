@@ -19,8 +19,8 @@ const userSchema = new Schema(
             message: "This is not a valid email."
         },
       },
-      thoughts: [{ type: Schema.Types.ObjectId, ref: 'thought' }],
-      friends: [{ type:Schema.Types.ObjectId, ref: 'user' }]
+      thoughts: [{ type: Schema.Types.ObjectId, ref: 'Thought' }],
+      friends: [{ type:Schema.Types.ObjectId, ref: 'User' }]
     },
     {
       toJSON: {

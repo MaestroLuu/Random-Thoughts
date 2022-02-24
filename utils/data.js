@@ -1,0 +1,32 @@
+const usernames = [
+    'shaquille.oatmeal',
+    'hoosier-daddy',
+    'fast_and_the_curious',
+    'HairyPoppins',
+    'fedora_the_explorer',
+    'actuallynotchrishemsworth',
+    'Avocadorable',
+    'FreeHugz',
+    'Chris_P_Bacon',
+  ];
+  
+  const appDescriptions = [
+    'Decision Tracker',
+    'Find My Phone',
+    'Learn Piano',
+    'Starbase Defender',
+    'Tower Defense',
+    'Monopoly Money Manager',
+    'Movie trailers',
+    'Hello world',
+    'Stupid Social Media App',
+    'Notes',
+    'Messages',
+    'Email',
+    'Compass',
+    'Firefox',
+    'Running app',
+    'Cooking app',
+    'Poker',
+    'Deliveries',
+  ];

@@ -19,7 +19,8 @@ const reactionSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.format(now, 'HH:mm DD/MM/YYYY'),
+        // check code for formatting date
+        default: Date.now,
     }
 });
 
@@ -32,7 +33,8 @@ const thoughtSchema = new Schema({
     },
     createdAt: {
         type: Date,
-        default: Date.format(now, 'HH:mm DD/MM/YYYY'),
+        // review code for date formatting
+        default: Date.now,
     },
     username: {
         type: String,

@@ -24,11 +24,10 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   //PUT update user by _id
-  //Ask about criteria again
   updateUser(req, res) {
     User.create(req.body)
       .then((user) => {
-        return User.findOneAndUpdate(
+        User.findOneAndUpdate(
           { _id: req.body.userId },
           { $set: req.body },
           { new: true }
@@ -53,7 +52,6 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
-  //review what prompt is asking for in README
   // POST to add new friend to user's friend list
   addFriend(req, res) {
     User.findOneAndUpdate(
@@ -69,23 +67,17 @@ module.exports = {
       .catch((err) => res.status(500).json(err))
   },
   // DELETE to remove friend from list
+  // check code and modify
   removeFriend(req, res) {
-    User.findOneAndDelete({ _id: req.params.userId })
+    User.findOneAndUpdate(
+      { _id: req.params.userId },
+      { $pull: { friends: req.params.friendsId} },
+      { new: true} 
+    )
       .then((user) =>
         !user
           ? res.status(404).json({ message: "No user with that ID" })
-          : Friend.findOneAndUpdate(
-            { friends: req.params.userId },
-            { $pull: { friends: req.params.userId} },
-            { new: true} 
-          )
-      )
-      .then((friend) =>
-        !friend
-            ?res.status(404).json({
-              message: 'Friend was removed, but user cannot be found',
-            })
-            : res.json({ message: "Your friend was removed from the list!" })
+          : res.json({ message: 'Your friend has been removed.'})
       )
       .catch((err) => res.status(500).json(err));
   },
