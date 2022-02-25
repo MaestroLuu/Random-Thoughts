@@ -42,20 +42,20 @@ module.exports = {
   },
   // PUT thought update
   updateThought(req, res) {
-    Thought.create(req.body)
-      .then((thought) => {
-        Thought.findOneAndUpdate(
-          { _id: req.body.thoughtId },
-          { $set: req.body },
-          { new: true }
-        );
-      })
+      Thought.findOneAndUpdate(
+        { _id: req.params.thoughtId },
+        { $set: req.body },
+        { new: true }
+      )
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "No thought with that ID" })
           : res.json(thought)
       )
-      .catch((err) => console.log(err), res.status(500).json(err));
+      .catch((err) => {
+        console.log(err); 
+        res.status(500).json(err);
+      });
   },
   // Delete thought by id
   deleteThought(req, res) {
