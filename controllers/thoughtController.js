@@ -4,8 +4,14 @@ module.exports = {
   // GET all thoughts
   getThoughts(req, res) {
     Thought.find()
-      .then((thoughts) => res.json(thoughts))
-      .catch((err) => res.status(500).json(err));
+      .select('-__v')
+      .then((thoughtData) => {
+        res.json(thoughtData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
   // GET single thought by id
   getSingleThought(req, res) {
