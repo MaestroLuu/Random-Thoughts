@@ -8,6 +8,60 @@ const usernames = [
   'Avocadorable',
   'FreeHugz',
   'Chris_P_Bacon',
+  'Aaran',
+  'Aarez',
+  'Aarman',
+  'Aaron',
+  'Aaron-James',
+  'Aarron',
+  'Aaryan',
+  'Aaryn',
+  'Jones',
+  'Coollastname',
+  'enter_name_here',
+  'Ze',
+  'Zechariah',
+  'Zeek',
+  'Zeeshan',
+  'Zein',
+  'Zen',
+  'Zendel',
+  'Zenith',
+  'Zennon',
+  'Zeph',
+  'Zerah',
+  'Zhen',
+  'Zhi',
+  'Zhong',
+  'Zhuo',
+  'Zi',
+  'Zidane',
+  'Zijie',
+  'Zinedine',
+  'Zishan',
+  'Ziya',
+  'Ziyaan',
+  'Zohaib',
+  'Zohair',
+  'Zoubaeir',
+  'Zubair',
+  'Zubayr',
+  'Xander',
+  'Jared',
+  'Courtney',
+  'Gillian',
+  'Clark',
+  'Jared',
+  'Grace',
+  'Kelsey',
+  'Tamar',
+  'Alex',
+  'Mark',
+  'Tamar',
+  'Farish',
+  'Sarah',
+  'Nathaniel',
+  'Parker',
 ];
   
 const thoughts = [
@@ -28,18 +82,6 @@ const thoughts = [
   'The ten years between 25 and 35 are far shorter than the four years between 14 and 18.',
 ];
 
-const emails = [
-  'rottenfruit@gmail.com',
-  'cocoanutterbutter@hotmail.com',
-  'bananas.in.pajamas@gmail.com',
-  'anita.bath@gmail.com',
-  'plumcakepudding@gmail.com',
-  'tacoboutit@gmail.com',
-  'T.Stark@avenger.com',
-  'T.Odinson@avenger.com',
-  'B.Banner@revenger.com'
-]
-
 const reactions = [
   'Absolutely agree with you!',
   'You are preaching the truth!',
@@ -57,11 +99,11 @@ const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Gets a random username
 const getRandomUser = () =>
-  getRandomArrItem(usernames);
+  `${getRandomArrItem(usernames)}${getRandomArrItem(usernames)}` ;
 
 // Gets random email
 const getRandomEmail = () => 
-  getRandomArrItem(emails);
+  `${getRandomArrItem(usernames)}${getRandomArrItem(usernames)}@gmail.com`;
 
 // Gets random reaction
 const getRandomReaction = () =>

@@ -12,10 +12,10 @@ connection.once('open', async () => {
   const users = [];
   const thoughts = getRandomThoughts(2);
 
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < 5; i++) {
     const username = getRandomUser();
     const email = getRandomEmail();
-    const friends = [getRandomUser(3)];
+    const friends = getRandomUser();
 
     users.push({
       username,
@@ -28,8 +28,6 @@ connection.once('open', async () => {
   await Thought.collection.insertMany(thoughts);
 
   // loop through the saved thoughts, for each thought we need to generate a thought reaction and insert the reaction
-  console.table(users);
-  console.table(thoughts);
   console.info('Seeding complete! 🌱');
   process.exit(0);
 });
