@@ -4,9 +4,14 @@ module.exports = {
   // GET all users
   getUsers(req, res) {
     User.find()
-      .then((users) => res.json(users))
-      .catch((err) => 
-      res.status(500).json(err));
+      .select('-__v')
+      .then((dbUserData) => {
+        res.json(dbUserData);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   },
   // GET a single user by _id
   getSingleUser(req, res) {
