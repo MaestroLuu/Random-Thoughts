@@ -90,6 +90,19 @@ module.exports = {
       console.log(err);
       return res.status(500).json(err);
     });
-
+  },
+  // DELETE reaction by id
+  removeReaction(req, res) {
+    Reaction.findOneAndUpdate(
+      { _id: req.body._id }, 
+      { $pull: { friends: req.params.friendId} },
+      { new: true} 
+    )
+    .then((reaction) =>
+    !reaction
+      ? res.status(404).json({ message: "No reaction with that ID" })
+      : res.json({ message: 'Your reaction has been removed.'})
+  )
+  .catch((err) => res.status(500).json(err));
   },
 };
