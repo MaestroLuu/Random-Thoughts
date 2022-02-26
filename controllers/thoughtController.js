@@ -1,4 +1,4 @@
-const { User, Reaction, Thought } = require("../models");
+const { User, Thought } = require("../models");
 
 module.exports = {
   // GET all thoughts
@@ -32,7 +32,9 @@ module.exports = {
           { username: req.body.username },
           { $addToSet: { thoughts: thought._id } },
           { new: true }
-        );
+        ).then(newThoughtArr => {
+          console.log(newThoughtArr)
+        });
         res.json(thought);
       })
       .catch((err) => {
@@ -70,4 +72,8 @@ module.exports = {
       )
       .catch((err) => res.status(500).json(err));
   },
+  // POST new reaction
+  createReaction(req, res) {
+    Reaction.create
+  }
 };
