@@ -12,7 +12,7 @@ connection.once('open', async () => {
   const users = [];
   const thoughts = getRandomThoughts(2);
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < 5; i++) {
     const username = getRandomUser();
     const email = getRandomEmail();
 

@@ -24,13 +24,13 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   // POST new thought and push to user's thought array
-  // check with john
   createThought(req, res) {
     Thought.create(req.body)
       .then((thought) => {
+        console.log(thought);
         User.findOneAndUpdate(
-          { _id: req.body.userId },
-          { $addToSet: { thoughts: req.params.thoughtId } },
+          { username: req.body.username },
+          { $addToSet: { thoughts: thought._id } },
           { new: true }
         );
         res.json(thought);
