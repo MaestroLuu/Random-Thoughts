@@ -93,9 +93,9 @@ module.exports = {
   },
   // DELETE reaction by id
   removeReaction(req, res) {
-    Reaction.findOneAndUpdate(
-      { _id: req.body._id }, 
-      { $pull: { friends: req.params.friendId} },
+    Thought.findOneAndUpdate(
+      { id: req.params.ThoughtId }, 
+      { $pull: { reactions: {_id: req.body._id } } },
       { new: true} 
     )
     .then((reaction) =>
