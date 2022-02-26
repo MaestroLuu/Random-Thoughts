@@ -1,10 +1,10 @@
-const { User, Thought } = require("../models");
+const { User, Thought, Reaction } = require("../models");
 
 module.exports = {
   // GET all thoughts
   getThoughts(req, res) {
     Thought.find()
-      .select('-__v')
+      .select("-__v")
       .then((thoughtData) => {
         res.json(thoughtData);
       })
@@ -32,8 +32,8 @@ module.exports = {
           { username: req.body.username },
           { $addToSet: { thoughts: thought._id } },
           { new: true }
-        ).then(newThoughtArr => {
-          console.log(newThoughtArr)
+        ).then((newThoughtArr) => {
+          console.log(newThoughtArr);
         });
         res.json(thought);
       })
@@ -44,18 +44,18 @@ module.exports = {
   },
   // PUT thought update
   updateThought(req, res) {
-      Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
-        { $set: req.body },
-        { new: true }
-      )
+    Thought.findOneAndUpdate(
+      { _id: req.params.thoughtId },
+      { $set: req.body },
+      { new: true }
+    )
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "No thought with that ID" })
           : res.json(thought)
       )
       .catch((err) => {
-        console.log(err); 
+        console.log(err);
         res.status(500).json(err);
       });
   },
@@ -74,6 +74,22 @@ module.exports = {
   },
   // POST new reaction
   createReaction(req, res) {
-    Reaction.create
-  }
+    Reaction.create(req.body)
+    .then((reaction) => {
+      console.log(reaction);
+      Thought.findOneAndUpdate(
+        { username: req.body.username },
+        { $addToSet: { reactions: reaction } },
+        { new: true }
+      ).then((reactionArr) => {
+        console.log(reactionArr);
+      });
+      res.json(reaction);
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).json(err);
+    });
+
+  },
 };

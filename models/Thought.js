@@ -2,13 +2,13 @@ const {
     Schema,
     model
 } = require('mongoose');
-const { Reaction } = require('.');
 
 const reactionSchema = new Schema({
-    reactionId: {
-        type: Schema.Types.ObjectId,
-        default: () => new Schema.Types.ObjectId
-    },
+    // creating new reaction automatically sets an objectid
+    // reactionId: {
+    //     type: Schema.Types.ObjectId,
+    //     default: () => new Schema.Types.ObjectId
+    // },
     reactionBody: {
         type: String,
         required: true,
@@ -58,5 +58,5 @@ thoughtSchema
     })
 
 const Thought = model('Thought', thoughtSchema);
-
-module.exports = Thought;
+const Reaction = model('Reaction', reactionSchema);
+module.exports = {Thought, Reaction};
