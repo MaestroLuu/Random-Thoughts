@@ -6,6 +6,8 @@ This application is a model of a social network API where users can create new t
 
 ## [Try it yourself!](https://github.com/MaestroLuu/Random-Thoughts.git)
 
+[![Watch the video](./assets/images/shower.jpg)](https://www.youtube.com/watch?v=G63aHBW0wmo)
+
 ## Installation
 
 In order for the application to function properly, users must have either Insomnia, Postman, or any other 3rd framework that allows tesing of RESTful APIs. Users can install the Insomnia application by going to the [Insomnia](https://insomnia.rest/download) web page and downloading from the links there. Otherwise, users can also utilize [Postman](https://www.postman.com/) for free on their web browser without the need to directly download the application. They will need to create a free account in order to access these features. 

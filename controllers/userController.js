@@ -5,7 +5,7 @@ module.exports = {
   getUsers(req, res) {
     User.find()
       .select('-__v')
-      .populate('thoughts')
+      // .populate('thoughts')
       .then((dbUserData) => {
         res.json(dbUserData);
       })
